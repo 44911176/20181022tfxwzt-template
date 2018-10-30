@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="application/javascript" src="http://www.sctv.com/zt/gn/cs1/website/src/jquery.min.js"></script>
+    <script type="text/javascript" src="http://js.sctv.com/ckplayer/x/ckplayer.min.js" ignoreapd="1"></script>
+    <title><TRS_CHANNEL ID="OWNER" FIELD="CHNLDESC" AUTOLINK="FALSE"/></title>
+    <meta name="keywords" content="<TRS_Documents ID="OWNER" CHILDINDEX="0" NUM="1" STARTPOS="1"><TRS_DOCUMENT FIELD="DOCCONTENT"/></TRS_Documents>" />
+    <meta name="description" content="<TRS_Documents ID="OWNER" CHILDINDEX="0" NUM="1" STARTPOS="2"><TRS_DOCUMENT FIELD="DOCCONTENT"/></TRS_Documents>" />
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+            font-family: '微软雅黑', Helvetica, Arial, '宋体', sans-serif;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .page_head {
+            width: 100%;
+            overflow: hidden;
+            margin: 0px;
+            padding: 0px;
+        }
+        .head_img {
+            width: 100%;
+            min-width: 1000px;
+            margin: 0 auto;
+        }
+        .page_container {
+            width: 1000px;
+            margin: 0 auto;
+            clear: both;
+            overflow: hidden;
+        }
+        .page_container .share {
+            width: 1000px;
+            margin: 10px auto;
+            text-align: right;
+            font-size: 13px;
+            line-height: 30px;
+        }
+        .page_container .share div {
+            display: inline;
+        }
+        .page_container .share .bdsharebuttonbox {
+            float: right;
+            padding-left: 10px;
+        }
+        .top_container {
+            width: 1000px;
+            margin: 60px 0px 20px 0px ;
+        }
+        .top_container video {
+            height: 563px;
+            width: 1000px;
+        }
+        .top_container .top_title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #000000;
+            margin: 5px 0px 55px 0px;
+        }
+        .top_container .top_title a {
+            color: #000000;
+        }
+        .top_container .top_details {
+            border-top: #bbbbbb 1px dashed;
+            padding: 40px 0px 40px 0px ;
+            font-size: 15px;
+            line-height: 24px;
+            color: #7a7a7a;
+        }
+        .top_container .top_details span {
+            font-size: 18px;
+            font-weight: bold;
+            color: #000000;
+        }
+        .top_container .top_details a {
+            color: #7a7a7a;
+        }
+        .left_container {
+            width: 720px;
+            float: left;
+        }
+        .left_container .left_headbtn {
+            overflow: hidden;
+        }
+        .left_container .left_headbtn .left_clock {
+            float: left;
+            position: relative;
+            top: 5px;
+            margin: 0px 0px 0px 110px;
+        }
+        .left_container .left_headbtn .left_rankbtn {
+            float: right;
+            margin: 20px 10px 0px 0px;
+        }
+        .left_container .left_headbtn .left_rankbtn:hover {
+            cursor: pointer;
+        }
+        .left_container .left_content {
+            overflow: hidden;
+        }
+        .left_container .left_content .left_time {
+            width: 120px;
+            height: 50px;
+            margin: 20px 8px 0px 0px;
+            padding: 5px 5px 0px 0px;
+            text-align: center;
+            background: url("http://www.sctv.com/zt/gn/cs1/website/style/time_bg.png");
+            float: left;
+            font-size: 15px;
+            color: #7a7a7a;
+        }
+        .left_container .left_content .left_time span {
+            font-size: 20px;
+            color: #000000;
+        }
+        .left_container .left_content .left_timedot {
+            margin-top: 40px;
+            margin-left: -595px;
+            position: absolute;
+            z-index: 99;
+        }
+        .left_container .left_content .left_news {
+            border-left: solid 2px #3394d7;
+            width: 550px;
+            padding: 0px 18px 0px 17px;
+            overflow: hidden;
+            float: left;
+        }
+        .left_container .left_content .left_news .top_border {
+            border-top: #bbbbbb 1px dashed;
+        }
+        .left_container .left_content .left_news .left_title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #000000;
+            padding: 20px 0px 0px 0px;
+        }
+        .left_container .left_content .left_news .left_title a {
+            color: #000000;
+        }
+        .left_container .left_content .left_news .left_details {
+            font-size: 13px;
+            color: #000000;
+            line-height: 24px;
+            overflow: hidden;
+        }
+        .left_container .left_content .left_news .left_details a {
+            color: #000000;
+        }
+        .left_container .left_content .left_news .limit_height {
+            height: 72px;
+        }
+        .left_container .left_content .left_news .left_images .img_l {
+            width: 545px;
+            height: 350px;
+            margin: 0px 0px 5px 0px;
+        }
+        .left_container .left_content .left_news .left_images .img_two {
+            width: 268px;
+            height: 268px;
+            margin: 0px 3px 0px 2px;
+        }
+        .left_container .left_content .left_news .left_images .img_three {
+            width: 176px;
+            height: 176px;
+            margin: 0px 3px 0px 2px;
+        }
+        .left_container .left_content .left_news .left_images .img_four {
+            width: 130px;
+            height: 130px;
+            margin: 0px 3px 0px 2px;
+        }
+        .left_container .left_content .left_news .left_images .img_s {
+            width: 60px;
+            height: 60px;
+            border: #ffffff 2px solid;
+            opacity: 0.6;
+            filter: alpha(opacity=60);
+        }
+        .left_container .left_content .left_news .left_images .img_s:hover {
+            border: #3394d7 2px solid;
+            opacity: 1;
+            filter: alpha(opacity=100);
+        }
+        .left_container .left_content .left_news .left_images .img_current {
+            border: #3394d7 2px solid;
+            opacity: 1;
+            filter: alpha(opacity=100);
+        }
+        .left_container .goto_top {
+            float: right;
+            position: absolute;
+            margin-top: 50px;
+            margin-left: 780px;
+        }
+        .left_container .left_line {
+            border-right: solid 2px #3394d7;
+            width: 133px;
+            height: 100px;
+            float: left;
+        }
+        .right_container {
+            width: 280px;
+            float: left;
+            background-color: #fafafa;
+        }
+        .right_container .list_title {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #3394d7;
+            margin: 10px 0px 20px 0px;
+        }
+        .right_container ul {
+            margin: 0px 10px 20px 30px ;
+            padding: 0px;
+        }
+        .right_container ul .news_list {
+            font-size: 15px;
+            font-weight: bold;
+            line-height: 24px;
+            color: #000000;
+            margin: 25px 0px 35px 0px;
+        }
+        .right_container ul .news_list a {
+            font-size: 15px;
+            font-weight: bold;
+            color: #000000;
+        }
+        .left_area {
+            width: 630px;
+            padding-right: 20px;
+            float: left;
+        }
+        .left_area .left_title {
+            padding: 0px;
+            margin: 10px 0px 20px 0px;
+        }
+        .left_area .left_list {
+            padding: 0px;
+            margin: 0px;
+        }
+        .left_area .left_list li {
+            padding: 0px;
+            margin: 0px;
+            list-style: none;
+        }
+        .left_area .left_list li .news_title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #000000;
+            padding: 0px 0px 0px 15px;
+            margin: 0px 0px 5px 0px;
+            background: url("http://www.sctv.com/zt/gn/cs1/website/style/dot.png") no-repeat left;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .left_area .left_list li .news_details {
+            height: 48px;
+            margin: 5px 0px 23px 0px;
+            font-size: 13px;
+            color: #7a7a7a;
+            line-height: 24px;
+            padding: 0px;
+            text-indent: 2em;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+        }
+        .left_area .left_list li .news_img {
+            width: 630px;
+            height: 400px;
+        }
+        .left_area .focus_area {
+            width: 630px;
+            height: 400px;
+            margin: 0px 0px 40px 0px;
+        }
+        .left_area .focus_area .focus_img {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+        .left_area .focus_area .focus_title {
+            width: 630px;
+            height: 38px;
+            margin: 0px;
+            padding: 12px 0px 0px 0px;
+            text-align: center;
+            color: #ffffff;
+            font-size: 18px;
+            background-color: rgba(0, 0, 0, 0.5);
+            position: relative;
+            top: -50px;
+        }
+        .right_area {
+            width: 335px;
+            padding-left: 14px;
+            border-left: solid 1px #bbbbbb;
+            float: left;
+        }
+        .right_area .right_title {
+            padding: 0px;
+            margin: 5px 0px 20px 0px;
+        }
+        .right_area .right_list {
+            padding: 0px;
+            margin: 0px;
+        }
+        .right_area .right_list li {
+            padding: 0px;
+            margin: 0px 0px 20px 5px;
+            font-size: 15px;
+            font-weight: bold;
+            color: #000000;
+            line-height: 24px;
+            list-style: none;
+        }
+        .right_area .right_list li a {
+            color: #000000;
+        }
+        .right_area .right_list li p {
+            height: 50px;
+            padding: 0px;
+            margin: 0px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+        }
+        .right_area .right_list li .videos_img {
+            width: 330px;
+            height: 185px;
+        }
+        .right_area .right_list li .play_btn {
+            width: 32px;
+            height: 36px;
+            position: absolute;
+            margin-top: 70px;
+            margin-left: 150px;
+            z-index: 99;
+        }
+        .j_more {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .copyright {
+            width: 100%;
+            background-color: #eeeeee;
+            border-top: 1px #bbbbbb solid;
+            padding: 0px;
+            color: #000;
+            text-decoration: none;
+            font-size: 12px;
+            line-height: 24px;
+            margin-top: 110px;
+        }
+        .copyright p {
+            width: 980px;
+            margin: 0 auto;
+            text-align: left;
+            padding: 10px 0px 10px 20px;
+        }
+        .copyright a {
+            color: #000;
+            text-decoration: none;
+            font-size: 12px;
+            line-height: 24px;
+        }
+        .hide {
+            display: none;
+        }
+        .more {
+            margin-bottom: 30px;
+            text-align: right;
+        }
+        .show_more {
+            font-size: 13px;
+            text-align: right;
+            width: 70px;
+            color: #3394d7;
+            background: #ffffff;
+            margin: 0px 0px 10px 0px;
+            cursor: pointer;
+            position: relative;
+            top: -33px;
+            left: 480px;
+        }
+        .show_less {
+            font-size: 13px;
+            color: #3394d7;
+            margin: 0px 0px 10px 0px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+<div class="page_head" id="top">
+    <TRS_Documents ID="OWNER" CHILDINDEX="0" NUM="1" STARTPOS="3">
+        <img class="head_img" src="<TRS_Appendix index="0" Mode="PIC" FIELD="_RECURL" AUTOLINK="FALSE" UPLOAD="TRUE"/>" />
+    </TRS_Documents>
+</div>
+
+<div class="page_container">
+    <!--share s-->
+    <div class="share clear">
+        <div class="left">&nbsp;&nbsp;&nbsp;&nbsp;分享到:</div>
+        <div class="bdsharebuttonbox"><a href="#" class="bds_more" data-cmd="more"></a><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a><a href="#" class="bds_copy" data-cmd="copy" title="分享到复制网址"></a></div>
+    </div>
+    <!--share e-->
+
+    <TRS_Documents ID="OWNER" CHILDINDEX="1" NUM="1" STARTPOS="0">
+        <div class="top_container">
+            <div class="player">
+                <div id="video" style="width:1000px;height:563px;"></div>
+                <script type="text/javascript">
+                    var videoObject = {
+                        container: '#video',
+                        variable: 'player',
+                        autoplay:true,
+                        flashplayer:false,
+                        video:'<TRS_DOCUMENT FIELD="M3U8"/>'
+                    };
+                    var player=new ckplayer(videoObject);
+                </script>
+            </div>
+            <p class="top_title"><TRS_DOCUMENT FIELD="DOCTITLE" AUTOLINK="false"/></p>
+            <p class="top_details"><span>直播介绍：</span><TRS_DOCUMENT FIELD="DOCABSTRACT"/></p>
+        </div>
+    </TRS_Documents>
+
+    <div class="left_container">
+        <div class="left_headbtn">
+            <div class="left_clock"><img src="http://www.sctv.com/zt/gn/cs1/website/style/clock.png" /></div>
+            <div class="left_rankbtn j_reorder"><img src="http://www.sctv.com/zt/gn/cs1/website/style/descending_btn.png" /></div>
+            <div class="left_rankbtn"><img src="http://www.sctv.com/zt/gn/cs1/website/style/ascending_btn.png" /></div>
+        </div>
+        <TRS_Documents ID="OWNER" CHILDINDEX="2" STARTPOS="0" order="CRTIME ASC">
+            <div class="left_content">
+                <div class="left_time"><span><TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="yyyy-MM-dd"/></span><br/><TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="HH:mm:ss"/></div>
+                <div class="left_news">
+                    <p class="left_title"><TRS_DOCUMENT FIELD="DOCTITLE" AUTOLINK="false"/></p>
+                    <p class="left_details"><TRS_DOCUMENT FIELD="DOCCONTENT"/></p>
+                    <div class="show_more j_showMore hide">(展开全文)</div>
+                    <div class="left_images">
+                        <TRS_Appendix Mode="PIC" UPLOAD="TRUE" SEPERATOR=""/>
+                    </div>
+                </div>
+                <img class="left_timedot" src="http://www.sctv.com/zt/gn/cs1/website/style/time_dot.png" />
+            </div>
+        </TRS_Documents>
+        <a href="#top"><img class="goto_top" src="http://www.sctv.com/zt/gn/cs1/website/style/top.jpg" /></a>
+    </div>
+    <div class="left_container">
+        <div class="left_headbtn">
+            <div class="left_clock"><img src="http://www.sctv.com/zt/gn/cs1/website/style/clock.png" /></div>
+            <div class="left_rankbtn"><img src="http://www.sctv.com/zt/gn/cs1/website/style/descending_btn.png" /></div>
+            <div class="left_rankbtn j_reorder"><img src="http://www.sctv.com/zt/gn/cs1/website/style/ascending_btn.png" /></div>
+        </div>
+        <TRS_Documents ID="OWNER" CHILDINDEX="2" STARTPOS="0" order="CRTIME DESC">
+            <div class="left_content">
+                <div class="left_time"><span><TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="yyyy-MM-dd"/></span><br/><TRS_DOCUMENT FIELD="CRTIME" DATEFORMAT="HH:mm:ss"/></div>
+                <div class="left_news">
+                    <p class="left_title"><TRS_DOCUMENT FIELD="DOCTITLE" AUTOLINK="false"/></p>
+                    <p class="left_details"><TRS_DOCUMENT FIELD="DOCCONTENT"/></p>
+                    <div class="show_more j_showMore hide">(展开全文)</div>
+                    <div class="left_images">
+                        <TRS_Appendix Mode="PIC" UPLOAD="TRUE" SEPERATOR=""/>
+                    </div>
+                </div>
+                <img class="left_timedot" src="http://www.sctv.com/zt/gn/cs1/website/style/time_dot.png" />
+            </div>
+        </TRS_Documents>
+        <a href="#top"><img class="goto_top" src="http://www.sctv.com/zt/gn/cs1/website/style/top.jpg" /></a>
+    </div>
+
+    <div  class="right_container">
+        <p class="list_title">相关新闻</p>
+        <ul>
+            <TRS_Documents ID="OWNER" CHILDINDEX="3" STARTPOS="0" order="CRTIME DESC">
+                <li class="news_list"><a href="<TRS_DOCUMENT FIELD=" _RECURL"/>" target="_blank"><TRS_DOCUMENT FIELD="DOCTITLE" AUTOLINK="false"/></li>
+            </TRS_Documents>
+        </ul>
+    </div>
+</div>
+
+<div class="copyright container">
+    <p>&copy;2001-2018 四川广播电视台 版权所有 不得转载
+        <a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" target="_blank">蜀ICP备10038523&nbsp;&nbsp;&nbsp;</a><br/>
+        <a href="http://www.sctv.com/ICP/MOVIE.HTML" target="_blank">网上传播视听节目许可证号：2304070&nbsp;&nbsp;&nbsp;</a>
+        <a href="http://www.sctv.com/ICP/NEWS.HTML" target="_blank">新闻信息服务资质备案号：川新备06-000025</a>&nbsp;&nbsp;&nbsp;
+        <a href="http://www.sctv.com/ICP/safe.HTML" target="_blank">信息系统安全等级保护备案号：510112990153</a>&nbsp;&nbsp;&nbsp;
+        川预审NFP4-NP24-8Z2B-4FJ8号
+    </p>
+</div>
+
+<div style="display:none;">
+    <TRS_Documents ID="OWNER" CHILDINDEX="0" NUM="1" STARTPOS="0">
+        <TRS_Document FIELD="DOCHTMLCON" AUTOFORMATTYPE="HTML" FILTEREDITORCSS="true" />
+    </TRS_Documents>
+</div>
+</body>
+<script>window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];</script>
+
+<script>
+    /*初始化*/
+    //动态为img添加对应的class
+    $('.left_images').each(function () {
+        var _imgs=$(this).find('img');
+        var _imgCount=_imgs.length;
+        if(_imgCount==1){
+            _imgs.each(function(){
+                $(this).addClass('img_l');
+            });
+        }
+        else if(_imgCount==2){
+            _imgs.each(function(){
+                $(this).addClass('img_two');
+            });
+        }
+        else if(_imgCount==3){
+            _imgs.each(function(){
+                $(this).addClass('img_three');
+            });
+        }
+        else if(_imgCount==4){
+            _imgs.each(function(){
+                $(this).addClass('img_four');
+            });
+        }
+        else if(_imgCount==16){
+            var j=0;
+            _imgs.each(function(){
+                if(j<8){
+                    $(this).addClass('img_l hide');
+                }
+                else{
+                    $(this).addClass('img_s');
+                }
+                j++;
+            });
+        }
+    });
+    //超过3行（72px）的新闻段落限制高度并显示展开按钮
+    $('.left_details').each(function () {
+        if($(this).height()>72)
+        {
+            $(this).addClass('limit_height');
+            $(this).siblings('.j_showMore').removeClass('hide');
+        }
+    });
+    //隐藏倒序板块
+    $('.left_container').eq(1).addClass('hide');
+
+    /*功能*/
+    //16张图片切换
+    var i=0;
+    $('.left_images').find('.img_s').parent().each(function () {
+        //初始化显示
+        var _currentId ='j_left_images'+i;
+        $(this).prop('id',_currentId);
+        $(this).find('.img_l').eq(0).removeClass('hide');
+        $(this).find('.img_s').eq(0).addClass('img_current');
+
+        //菜单逻辑
+        $('#'+_currentId).find('.img_s').click(function () {
+            var $this = $(this);
+            var thisIndex = $this.index()-8;
+            $this.siblings().removeClass('img_current');
+            $this.addClass('img_current');
+            var $imgShow=$('#'+_currentId).find('.img_l').eq(thisIndex);
+            $('#'+_currentId).find('.img_l').addClass('hide');
+            $imgShow.removeClass('hide');
+        });
+        i++;
+    });
+    //排序按钮
+    $('.j_reorder').each(function () {
+        $(this).click(function () {
+            $('.left_container').removeClass('hide');
+            $(this).parents('.left_container').addClass('hide');
+        });
+    });
+    //展开全文按钮
+    $('.j_showMore').each(function () {
+        $(this).click(function () {
+            if($(this).html()=='收起'){
+                $(this).siblings('.left_details').addClass('limit_height');
+                $(this).html('(展开全文)').removeClass('show_less').addClass('show_more');
+            }
+            else {
+                $(this).siblings('.left_details').removeClass('limit_height');
+                $(this).html('收起').removeClass('show_more').addClass('show_less');
+            }
+        });
+    });
+</script>
+
+<!-- 微信分享接口信息 S -->
+<div class="wxshare"  style="display: none">
+    <TRS_Documents ID="OWNER" CHILDINDEX="0" NUM="1" STARTPOS="8">
+        <div id="shareTit"><TRS_DOCUMENT FIELD="DOCTITLE" AUTOLINK="FALSE" /></div>
+        <div id="shareSum"><TRS_DOCUMENT FIELD="DOCABSTRACT"/></div>
+        <div id="shareImg"><img src="<TRS_Appendix index="0" Mode="PIC" FIELD="_RECURL" AUTOLINK="FALSE" UPLOAD="TRUE" URLISABS="TRUE"/>" ignoreapd="1" /></div>
+    </TRS_Documents>
+</div>
+<script type='text/javascript' src='http://js.sctv.com/Jquery/jquery-latest.pack.js' ignoreapd="1"></script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" ignoreapd="1"></script>
+<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/qzact/common/share/share.js" ignoreapd="1"></script>
+<script type="text/javascript" src="http://www.sctv.com/global/js/share.js" ignoreapd="1"></script>
+<script type="text/javascript">
+    getInfo();
+</script>
+<!-- 微信分享接口信息 E -->
+
+</html>
